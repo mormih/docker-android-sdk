@@ -43,22 +43,22 @@ RUN echo y | android update sdk --no-ui --all --filter platform-tools | grep 'pa
 # SDKs
 # Please keep these in descending order!
 RUN echo y | android update sdk --no-ui --all --filter android-25 | grep 'package installed'
-RUN echo y | android update sdk --no-ui --all --filter android-24 | grep 'package installed'
-RUN echo y | android update sdk --no-ui --all --filter android-23 | grep 'package installed'
-RUN echo y | android update sdk --no-ui --all --filter android-18 | grep 'package installed'
-RUN echo y | android update sdk --no-ui --all --filter android-16 | grep 'package installed'
+#RUN echo y | android update sdk --no-ui --all --filter android-24 | grep 'package installed'
+#RUN echo y | android update sdk --no-ui --all --filter android-23 | grep 'package installed'
+#RUN echo y | android update sdk --no-ui --all --filter android-18 | grep 'package installed'
+#RUN echo y | android update sdk --no-ui --all --filter android-16 | grep 'package installed'
 
 # build tools
 # Please keep these in descending order!
 RUN echo y | android update sdk --no-ui --all --filter build-tools-25.0.2 | grep 'package installed'
-RUN echo y | android update sdk --no-ui --all --filter build-tools-25.0.1 | grep 'package installed'
-RUN echo y | android update sdk --no-ui --all --filter build-tools-25.0.0 | grep 'package installed'
-RUN echo y | android update sdk --no-ui --all --filter build-tools-24.0.3 | grep 'package installed'
-RUN echo y | android update sdk --no-ui --all --filter build-tools-24.0.2 | grep 'package installed'
-RUN echo y | android update sdk --no-ui --all --filter build-tools-24.0.1 | grep 'package installed'
-RUN echo y | android update sdk --no-ui --all --filter build-tools-23.0.3 | grep 'package installed'
-RUN echo y | android update sdk --no-ui --all --filter build-tools-23.0.2 | grep 'package installed'
-RUN echo y | android update sdk --no-ui --all --filter build-tools-23.0.1 | grep 'package installed'
+#RUN echo y | android update sdk --no-ui --all --filter build-tools-25.0.1 | grep 'package installed'
+#RUN echo y | android update sdk --no-ui --all --filter build-tools-25.0.0 | grep 'package installed'
+#RUN echo y | android update sdk --no-ui --all --filter build-tools-24.0.3 | grep 'package installed'
+#RUN echo y | android update sdk --no-ui --all --filter build-tools-24.0.2 | grep 'package installed'
+#RUN echo y | android update sdk --no-ui --all --filter build-tools-24.0.1 | grep 'package installed'
+#RUN echo y | android update sdk --no-ui --all --filter build-tools-23.0.3 | grep 'package installed'
+#RUN echo y | android update sdk --no-ui --all --filter build-tools-23.0.2 | grep 'package installed'
+#RUN echo y | android update sdk --no-ui --all --filter build-tools-23.0.1 | grep 'package installed'
 
 # Android System Images, for emulators
 # Please keep these in descending order!
@@ -66,9 +66,9 @@ RUN echo y | android update sdk --no-ui --all --filter build-tools-23.0.1 | grep
 #RUN echo y | android update sdk --no-ui --all --filter sys-img-x86-android-25 | grep 'package installed'
 #RUN echo y | android update sdk --no-ui --all --filter sys-img-armeabi-v7a-android-25 | grep 'package installed'
 
-RUN echo y | android update sdk --no-ui --all --filter sys-img-x86_64-android-24 | grep 'package installed'
-RUN echo y | android update sdk --no-ui --all --filter sys-img-x86-android-24 | grep 'package installed'
-RUN echo y | android update sdk --no-ui --all --filter sys-img-armeabi-v7a-android-24 | grep 'package installed'
+#RUN echo y | android update sdk --no-ui --all --filter sys-img-x86_64-android-24 | grep 'package installed'
+#RUN echo y | android update sdk --no-ui --all --filter sys-img-x86-android-24 | grep 'package installed'
+#RUN echo y | android update sdk --no-ui --all --filter sys-img-armeabi-v7a-android-24 | grep 'package installed'
 
 #RUN echo y | android update sdk --no-ui --all --filter sys-img-x86-android-23 | grep 'package installed'
 #RUN echo y | android update sdk --no-ui --all --filter sys-img-armeabi-v7a-android-23 | grep 'package installed'
