@@ -15,7 +15,7 @@ RUN apt-get update -qq
 #RUN dpkg --add-architecture i386
 #RUN apt-get update -qq
 #RUN DEBIAN_FRONTEND=noninteractive apt-get install -y openjdk-8-jdk libc6:i386 libstdc++6:i386 libgcc1:i386 libncurses5:i386 libz1:i386
-RUN apt-get install -y openjdk-8-jdk wget expect git-all unzip
+RUN apt-get install -y openjdk-8-jdk wget expect git-all unzip lib32z1 libc6-i386 lib32stdc++6 lib32gcc1 lib32ncurses5
 
 # ------------------------------------------------------
 # --- Download Android SDK tools into $ANDROID_HOME
@@ -38,16 +38,6 @@ ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
 # (!!!) Only install one package at a time, as "echo y" will only work for one license!
 #       If you don't do it this way you might get "Unknown response" in the logs,
 #         but the android SDK tool **won't** fail, it'll just **NOT** install the package.
-RUN echo y | android update sdk --no-ui --all --filter platform-tools | grep 'package installed'
-#RUN echo y | android update sdk --no-ui --all --filter extra-android-support | grep 'package installed'
-
-# SDKs
-# Please keep these in descending order!
-RUN echo y | android update sdk --no-ui --all --filter android-25 | grep 'package installed'
-#RUN echo y | android update sdk --no-ui --all --filter android-24 | grep 'package installed'
-#RUN echo y | android update sdk --no-ui --all --filter android-23 | grep 'package installed'
-#RUN echo y | android update sdk --no-ui --all --filter android-18 | grep 'package installed'
-#RUN echo y | android update sdk --no-ui --all --filter android-16 | grep 'package installed'
 
 # build tools
 # Please keep these in descending order!
@@ -60,6 +50,17 @@ RUN echo y | android update sdk --no-ui --all --filter build-tools-25.0.2 | grep
 #RUN echo y | android update sdk --no-ui --all --filter build-tools-23.0.3 | grep 'package installed'
 #RUN echo y | android update sdk --no-ui --all --filter build-tools-23.0.2 | grep 'package installed'
 #RUN echo y | android update sdk --no-ui --all --filter build-tools-23.0.1 | grep 'package installed'
+
+# SDKs
+# Please keep these in descending order!
+RUN echo y | android update sdk --no-ui --all --filter android-25 | grep 'package installed'
+#RUN echo y | android update sdk --no-ui --all --filter android-24 | grep 'package installed'
+#RUN echo y | android update sdk --no-ui --all --filter android-23 | grep 'package installed'
+#RUN echo y | android update sdk --no-ui --all --filter android-18 | grep 'package installed'
+#RUN echo y | android update sdk --no-ui --all --filter android-16 | grep 'package installed'
+
+# platform tools
+RUN echo y | android update sdk --no-ui --all --filter platform-tools | grep 'package installed'
 
 # Android System Images, for emulators
 # Please keep these in descending order!
@@ -74,13 +75,11 @@ RUN echo y | android update sdk --no-ui --all --filter build-tools-25.0.2 | grep
 #RUN echo y | android update sdk --no-ui --all --filter sys-img-x86-android-23 | grep 'package installed'
 #RUN echo y | android update sdk --no-ui --all --filter sys-img-armeabi-v7a-android-23 | grep 'package installed'
 
-# Sources
-RUN echo y | android update sdk --no-ui --all --filter source-25 | grep 'package installed'
-
 # Extras
 RUN echo y | android update sdk --no-ui --all --filter extra-android-m2repository | grep 'package installed'
 RUN echo y | android update sdk --no-ui --all --filter extra-google-m2repository | grep 'package installed'
 RUN echo y | android update sdk --no-ui --all --filter extra-google-google_play_services | grep 'package installed'
+RUN echo y | android update sdk --no-ui --all --filter extra-android-support | grep 'package installed'
 
 # install those?
 
