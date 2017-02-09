@@ -37,8 +37,9 @@ ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
 # (!!!) Only install one package at a time, as "echo y" will only work for one license!
 #       If you don't do it this way you might get "Unknown response" in the logs,
 #         but the android SDK tool **won't** fail, it'll just **NOT** install the package.
+RUN echo y | android update sdk --no-ui --all --filter tools | grep 'package installed'
 RUN echo y | android update sdk --no-ui --all --filter platform-tools | grep 'package installed'
-RUN echo y | android update sdk --no-ui --all --filter extra-android-support | grep 'package installed'
+#RUN echo y | android update sdk --no-ui --all --filter extra-android-support | grep 'package installed'
 
 # SDKs
 # Please keep these in descending order!
@@ -72,6 +73,9 @@ RUN echo y | android update sdk --no-ui --all --filter build-tools-25.0.2 | grep
 
 #RUN echo y | android update sdk --no-ui --all --filter sys-img-x86-android-23 | grep 'package installed'
 #RUN echo y | android update sdk --no-ui --all --filter sys-img-armeabi-v7a-android-23 | grep 'package installed'
+
+# Sources
+RUN echo y | android update sdk --no-ui --all --filter source-25 | grep 'package installed'
 
 # Extras
 RUN echo y | android update sdk --no-ui --all --filter extra-android-m2repository | grep 'package installed'
