@@ -15,14 +15,15 @@ RUN apt-get update -qq
 #RUN dpkg --add-architecture i386
 #RUN apt-get update -qq
 #RUN DEBIAN_FRONTEND=noninteractive apt-get install -y openjdk-8-jdk libc6:i386 libstdc++6:i386 libgcc1:i386 libncurses5:i386 libz1:i386
-RUN apt-get install -y openjdk-8-jdk wget expect git-all
+RUN apt-get install -y openjdk-8-jdk wget expect git-all unzip
 
 # ------------------------------------------------------
 # --- Download Android SDK tools into $ANDROID_HOME
 
-RUN cd /opt && wget -q https://dl.google.com/android/android-sdk_r24.4.1-linux.tgz -O android-sdk.tgz
-RUN cd /opt && tar -xvzf android-sdk.tgz
-RUN cd /opt && rm -f android-sdk.tgz
+RUN cd /opt && wget -q https://dl.google.com/android/repository/tools_r25.2.3-linux.zip
+RUN cd /opt && mkdir android-sdk-linux && cd android-sdk-linux && mkdir add-ons && mkdir platforms
+RUN cd /opt && unzip tools_r25.2.3-linux.zip -d android-sdk-linux
+RUN cd /opt && rm -f tools_r25.2.3-linux.zip
 
 ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
 
