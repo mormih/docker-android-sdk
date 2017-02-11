@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM 32bit/ubuntu:16.04
 
 ENV ANDROID_HOME /opt/android-sdk-linux
 
