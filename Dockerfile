@@ -80,7 +80,7 @@ RUN echo y | android update sdk --no-ui --all --filter platform-tools | grep 'pa
 #RUN echo y | android update sdk --no-ui --all --filter sys-img-armeabi-v7a-android-23 | grep 'package installed'
 
 # Extras
-RUN echo y | android update sdk --no-ui --all --filter extra-android-support | grep 'package installed'
+#RUN echo y | android update sdk --no-ui --all --filter extra-android-support | grep 'package installed'
 RUN echo y | android update sdk --no-ui --all --filter extra-android-m2repository | grep 'package installed'
 RUN echo y | android update sdk --no-ui --all --filter extra-google-m2repository | grep 'package installed'
 RUN echo y | android update sdk --no-ui --all --filter extra-google-google_play_services | grep 'package installed'
@@ -121,7 +121,7 @@ RUN echo y | android update sdk --no-ui --all --filter extra-google-google_play_
 
 # google apis
 # Please keep these in descending order!
-#RUN echo y | android update sdk --no-ui --all --filter addon-google_apis-google-23 | grep 'package installed'
+RUN echo y | android update sdk --no-ui --all --filter addon-google_apis-google-24 | grep 'package installed'
 
 # Copy install tools
 COPY tools /opt/tools
