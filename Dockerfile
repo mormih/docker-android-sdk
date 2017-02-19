@@ -16,7 +16,10 @@ RUN apt-get update -qq
 #RUN apt-get update -qq
 #RUN DEBIAN_FRONTEND=noninteractive apt-get install -y openjdk-8-jdk wget expect git-all unzip libc6:i386 libstdc++6:i386 libgcc1:i386 libncurses5:i386 libz1:i386
 RUN apt-get install -y openjdk-8-jdk wget expect git-all unzip
-
+# Install git-lfs plugin
+RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | sudo bash
+RUN apt-get install git-lfs
+RUN git lfs install
 # ------------------------------------------------------
 # --- Download Android SDK tools into $ANDROID_HOME
 
