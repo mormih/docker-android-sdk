@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.github.lukaspili.autodagger2</groupId>
+  <artifactId>autodagger2-compiler</artifactId>
+  <version>1.1</version>
+  <name>Auto Dagger2 Compiler</name>
+  <description>Auto Dagger2</description>
+  <url>https://github.com/lukaspili/auto-dagger2</url>
+  <licenses>
+    <license>
+      <name>The MIT License (MIT)</name>
+      <url>http://opensource.org/licenses/MIT</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>lukaspili</id>
+      <name>Lukasz Piliszczuk</name>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git:git://github.com/lukaspili/auto-dagger2.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/lukaspili/auto-dagger2.git</developerConnection>
+    <url>https://github.com/lukaspili/auto-dagger2</url>
+  </scm>
+  <dependencies>
+    <dependency>
+      <groupId>com.github.lukaspili.processor-workflow</groupId>
+      <artifactId>processor-workflow</artifactId>
+      <version>1.0.1</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.github.lukaspili.autodagger2</groupId>
+      <artifactId>autodagger2</artifactId>
+      <version>1.1</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.github.lukaspili.autodagger2</groupId>
+      <artifactId>autodagger2-compiler-utils</artifactId>
+      <version>1.1</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
+</project>

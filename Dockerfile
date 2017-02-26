@@ -1,11 +1,12 @@
 FROM ubuntu:16.04
-#FROM  ioft/i386-ubuntu
 ENV ANDROID_HOME /opt/android-sdk-linux
 
 
 # ------------------------------------------------------
 # --- Install required tools
-
+RUN apt-get update -qq
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y python-software-properties software-properties-common
+RUN add-apt-repository -y ppa:git-core/ppa
 RUN apt-get update -qq
 
 # Dependencies to execute Android builds
@@ -15,7 +16,8 @@ RUN apt-get update -qq
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y openjdk-8-jdk wget curl expect git-all unzip lib32stdc++6 libc6-dbg
 # Install git-lfs plugin
 RUN cd /opt && curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && apt-get install -y git-lfs
-
+RUN git config --global user.email "builder@noemail.com"
+RUN git config --global user.name "builder"
 # ------------------------------------------------------
 # --- Download Android SDK tools into $ANDROID_HOME
 
@@ -132,6 +134,14 @@ COPY licenses/android-sdk-preview-license ${ANDROID_HOME}
 ENV PATH ${PATH}:/opt/tools
 # Update SDK
 # RUN /opt/tools/android-accept-licenses.sh android update sdk --no-ui --obsolete --force
+
+
+RUN mkdir /opt/build-tools/
+COPY gradle /opt/build-tools/gradle
+COPY gradlew /opt/build-tools/
+
+RUN /opt/build-tools/gradlew tasks
+COPY .gradle /home/root/
 
 RUN apt-get clean
 
