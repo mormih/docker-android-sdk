@@ -24,12 +24,12 @@ RUN git config --global user.name "builder"
 # ------------------------------------------------------
 # --- Download Android SDK tools into $ANDROID_HOME
 
-RUN cd /opt && wget -q https://dl.google.com/android/repository/tools_r${ANDROID_VERSION}-linux.zip
+RUN cd /opt && wget -q https://dl.google.com/android/repository/tools_r25.2.3-linux.zip
 RUN cd /opt && mkdir android-sdk-linux && cd android-sdk-linux && mkdir add-ons && mkdir platforms
 RUN cd /opt && unzip tools_r${ANDROID_VERSION}-linux.zip -d android-sdk-linux
 RUN cd /opt && rm -f tools_r${ANDROID_VERSION}-linux.zip
 
-RUN cd /opt && wget -q https://dl.google.com/android/android-sdk_r${ANDROID_VERSION}-linux.tgz -O android-sdk.tgz
+RUN cd /opt && wget -q https://dl.google.com/android/android-sdk_r$25.2.3-linux.tgz -O android-sdk.tgz
 RUN cd /opt && tar -xvzf android-sdk.tgz
 RUN cd /opt && rm -f android-sdk.tgz
 
