@@ -1,0 +1,14 @@
+# Ignoring following things
+target
+build
+*.iml
+.idea/*
+*/src/generated/*
+gen
+build.properties
+.gradle
+*.ipr
+*.iws
+keystore.properties
+local.properties
+*.kdbx
