@@ -1,8 +1,8 @@
 FROM ubuntu:16.04
 ENV ANDROID_HOME /opt/android-sdk-linux
 ENV ANDROID_VERSION 26.0.2
-ENV MAX_SDK_VERSION=26
-ENV MIN_SDK_VERSION=15
+ENV MAX_SDK_VERSION 26
+ENV MIN_SDK_VERSION 15
 
 
 # ------------------------------------------------------
